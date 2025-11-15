@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="titulo">
+    <h1>BattleGrid</h1>
+    <h2>Battle Grid</h2>
+    </div>
+<div class="cuerpo">
+    <div class="bloque1">
+        <h3>configuració del joc</h3>
+                <div class="medidas">
+                    <p>Amplada</p>
+                    <p>Alçada</p>
+                </div>
+                <div class="medidas"> 
+                    <input type="number" min="7" max="20" step="1" value="10">
+                    <input type="number" min="7" max="20" step="1" value="10">
+                </div>   
+                <div class="deslizar">
+                    <p>num de vaixells</p>
+                    <input type="range" min="1" max="20" value="5">
+                </div>      
+                    <p>difficulty</p>
+                    <label>
+                        <input type="radio" name="difficulty" value="easy">
+                        Easy
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="difficulty" value="medium">
+                        Medium
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="difficulty" value="hard" checked>
+                        Hard
+                    </label>
+        <h4 class="start">Start Game</h4>
+        <h4 class="restart">Restart Game</h4>
+        <h4 class="abandon">Abandon Game</h4>
+
+        <img class="banner" src="gameon.jpg" alt="">
+    </div>
+    <div class="bloque2">
+        <h3 align="center">El meu Taulell</h3>
+        <div class="tablero">
+    <div class="tablero-container">
+        <div class="tablero">
+        <div class="vacio"></div>
+
+        <div class="letra">A</div>
+        <div class="letra">B</div>
+        <div class="letra">C</div>
+        <div class="letra">D</div>
+        <div class="letra">E</div>
+        <div class="letra">F</div>
+        <div class="letra">G</div>
+        <div class="letra">H</div>
+        <div class="letra">I</div>
+        <div class="letra">J</div>
+
+        <div class="numero">1</div>
+        <div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div>
+
+        <div class="numero">2</div>
+        <div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div>
+
+        <div class="numero">3</div>
+        <div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div>
+
+        <div class="numero">4</div>
+        <div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div>
+
+        <div class="numero">5</div>
+        <div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div>
+
+        <div class="numero">6</div>
+        <div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div>
+
+        <div class="numero">7</div>
+        <div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div>
+
+        <div class="numero">8</div>
+        <div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div>
+
+        <div class="numero">9</div>
+        <div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div>
+
+        <div class="numero">10</div>
+        <div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div><div class="celda"></div>
+        </div>
+    </div>
+        </div>
+            <h4 align="center" class="start">Fire</h4>
+    </div>
+
+    <div class="bloque3">
+        <h4>Marcador</h4>
+        <h1>0 Puntos</h1>
+        <h4>Estadisticas</h4>
+        <h1>Jugador: Iker</h1>
+        <div class="stats-jugador">
+        <h4>Estats del jugador:</h4>
+        <div class="stats">
+            <div class="stat">Hits: 5</div>
+            <div class="stat">Misses: 5</div>
+            
+            <div class="break"></div>
+
+            <div class="stat">Ships Sunk: 1</div>
+        </div>
+        </div>
+        <br>
+        <h4>numeros de jugadores: <br> 6</h4>
+        <div class="footer3">
+        <p>ultim missatge: iker <br>
+        a encertar al vaixell A3</p>
+        <img src="mario.jpg" alt="">
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
