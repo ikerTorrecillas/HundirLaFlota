@@ -1,4 +1,4 @@
-name: Despliegue HundirLaFlota
+name: Despliegue Hundir la Flota
 
 on:
   workflow_dispatch:
@@ -8,48 +8,51 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # === 1. DESCARGAR REPO ===
-    - name: Checkout
-      uses: actions/checkout@v3
+      # 1. Descargar repositorio
+      - name: Checkout
+        uses: actions/checkout@v3
 
-    # === 2. DOCKER ===
-    - name: Setup Docker
-      uses: docker/setup-buildx-action@v2
+      # 2. Configurar Docker
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v2
 
-    # === 3. BUILD BACKEND ===
-    - name: Build Backend
-      run: docker build -t backend ./Backend
+      # 3. Construir Backend
+      - name: Build Backend
+        run: docker build -t backend ./backend
 
-    - name: Run Backend
-      run: docker run -d -p 5000:5000 --name backend_container backend
+      # 4. Construir Frontend
+      - name: Build Frontend
+        run: docker build -t frontend ./frontend
 
-    # === 4. BUILD FRONTEND ===
-    - name: Build Frontend
-      run: docker build -t frontend ./FrontEnd
+      # 5. Lanzar Backend
+      - name: Run Backend
+        run: docker run -d -p 5000:5000 --name backend_container backend
 
-    - name: Run Frontend
-      run: docker run -d -p 80:80 --name frontend_container frontend
+      # 6. Lanzar Frontend
+      - name: Run Frontend
+        run: docker run -d -p 80:80 --name frontend_container frontend
 
-    # === 5. INSTALAR NGROK ===
-    - name: Install Ngrok
-      run: |
-        sudo apt update
-        sudo apt install -y unzip
-        wget -O ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip
-        unzip ngrok.zip
-        sudo mv ngrok /usr/local/bin/
+      # 7. Instalar Ngrok (URL correcta)
+      - name: Instalar Ngrok
+        run: |
+          sudo apt update -y
+          sudo apt install -y wget unzip
+          wget https://downloads.ngrok.com/linux/stable/ngrok-v3-stable-linux-amd64.zip -O ngrok.zip
+          unzip ngrok.zip
+          chmod +x ngrok
 
-    # === 6. AUTENTICAR NGROK ===
-    - name: Auth Ngrok
-      run: ngrok authtoken ${{ secrets.NGROK_AUTHTOKEN }}
+      # 8. Autenticar Ngrok
+      - name: Autenticar Ngrok
+        run: |
+          ./ngrok config add-authtoken ${{ secrets.NGROK_AUTHTOKEN }}
 
-    # === 7. INICIAR TÚNEL ===
-    - name: Start Ngrok
-      run: |
-        ngrok http 80 --log=stdout > ngrok.log &
-        sleep 6
-        curl http://localhost:4040/api/tunnels
+      # 9. Iniciar túnel Ngrok
+      - name: Iniciar túnel Ngrok
+        run: |
+          ./ngrok http 80 --log=stdout > ngrok.log &
+          sleep 5
+          curl http://localhost:4040/api/tunnels
 
-    # === 8. MANTENER TODO VIVO ===
-    - name: Keep Alive
-      run: sleep 600
+      # 10. Mantener contenedores vivos
+      - name: Mantener contenedores vivos
+        run: sleep 600
